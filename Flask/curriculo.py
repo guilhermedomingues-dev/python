@@ -1,0 +1,136 @@
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def paginaInicial():
+    curriculo = """
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Currículo - Guilherme Augusto Lino Domingues</title>
+        <style>
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+            color: #333;
+            padding: 0 22vw 0 22vw;
+        }
+
+        header {
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            margin-top: 30px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: square;
+            margin-left: 20px;
+        }
+
+        .info-contato p {
+            margin: 2px 0;
+        }
+
+        .periodo {
+            font-weight: bold;
+        }
+    </style>
+    </head>
+    <body>
+
+    <header>
+        <h1>Guilherme Augusto Lino Domingues</h1>
+        <div class="info-contato">
+            <p><strong>Data de nascimento:</strong> 02/09/2008</p>
+            <p><strong>Endereço:</strong> Rua Leopoldina Cardoso, 18/403 - Dona Clara - Belo Horizonte, MG</p>
+            <p><strong>Telefone:</strong> (31) 9 8116-5880</p>
+            <p><strong>Email:</strong> guilherme.ldomingues@gmail.com</p>
+        </div>
+    </header>
+
+    <main>
+
+        <section>
+            <h2>Formação</h2>
+
+            <article>
+                <p class="periodo">FEV. 2012 / DEZ. 2023</p>
+                <p><strong>Colégio Dona Clara</strong></p>
+                <p>Conclusão do Ensino Fundamental I e II</p>
+            </article>
+
+            <article>
+                <p class="periodo">FEV. 2024 / DEZ. 2026</p>
+                <p><strong>COTEMIG - Colégio</strong></p>
+                <p>Técnico em Informática</p>
+                <p>Unidade Floresta</p>
+                <p>3ª série manhã - Em andamento</p>
+            </article>
+
+            <article>
+                <p class="periodo">2026</p>
+                <p><strong>CENEX-fale / UFMG</strong></p>
+                <p>Inglês Pré-intermediário 3º estágio (B1.3) - Em andamento</p>
+            </article>
+        </section>
+
+        <section>
+            <h2>Habilidades</h2>
+            <ul>
+                <li>Pontualidade e Responsabilidade</li>
+                <li>Organização</li>
+                <li>Respeito à hierarquia</li>
+                <li>Taekwondo - Faixa Vermelha Ponta Preta (9 anos de prática, desenvolvimento e disciplina)</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Habilidades Técnicas</h2>
+            <ul>
+                <li>Domínio das ferramentas Google</li>
+                <li>HTML5, CSS3 e JavaScript</li>
+                <li>C#</li>
+                <li>MySQL</li>
+                <li>Python</li>
+                <li>Dart</li>
+                <li>Swift</li>
+                <li>Kotlin</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Certificação</h2>
+            <ul>
+                <li>Certificado de voluntariado do Núcleo Amor e Cuidado do Colégio Cotemig</li>
+                <li>Certificado de conclusão de treinamento da 15ª edição Code Club Cotemig</li>
+            </ul>
+        </section>
+
+    </main>
+
+    </body>
+    </html>
+    """
+    return curriculo
+
+if __name__ == '__main__':
+    app.run(debug=True)
