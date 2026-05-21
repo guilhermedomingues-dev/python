@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}Questão 4{% endblock %}
+
+{% block content %}
+Alunos: {{ alunos }}
+
+{% if nota >= 7 %}
+    <p>Aprovado</p>
+{% else %}
+    <p>Reprovado</p>
+{% endif %}
+
+{% if nota >= 9 %}
+    Excelente
+{% elif nota >= 7 %}
+    Aprovado
+{% else %}
+    Reprovado
+{% endif %}
+
+{% endblock %}
