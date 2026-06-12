@@ -8,8 +8,13 @@ class Operacao(db.Model):
 
     __tablename__ = "operacoes"
 
-
-#   CRIAR A TABELA COM datetime AQUI
+    id = db.Column(db.Integer, primary_key=True)
+    num1 = db.Column(db.Float, nullable=False)
+    num2 = db.Column(db.Float, nullable=True)
+    operacao = db.Column(db.String(10), nullable=False)
+    etapas = db.Column(db.String(200), nullable=False)
+    resultado = db.Column(db.String(100), nullable=False)
+    criado_em = db.Column(db.DateTime, default=dt.now)
 
     @classmethod
     def salvar(cls, num1, num2, operacao, etapas, resultado):
@@ -20,7 +25,8 @@ class Operacao(db.Model):
             etapas=etapas,
             resultado=str(resultado),
         )
-    #  ADICIONAR E FAZER O COMMIT AQUI
+        db.session.add(registro)
+        db.session.commit()
         return registro
 
     @classmethod
