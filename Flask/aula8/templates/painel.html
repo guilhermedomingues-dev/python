@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Painel de Consultas Médicas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <h1>Painel de Consultas Médicas</h1>
+
+    <form method="POST">
+        <label for="especialidade">Especialidade:</label>
+        <input type="text" id="especialidade" name="especialidade" placeholder="Ex: Cardiologia">
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% if erro %}
+        <p class="erro">{{ erro }}</p>
+    {% endif %}
+
+    {% if especialidade and medicos %}
+        <h2>{{ especialidade }}</h2>
+
+        {% for medico in medicos %}
+            <div class="medico">
+                <p><strong>Nome:</strong> {{ medico.nome }}</p>
+                <p><strong>CRM:</strong> {{ medico.crm }}</p>
+                <p><strong>Planos aceitos:</strong> {{ medico.planos | join(", ") }}</p>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
